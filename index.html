@@ -1,1 +1,672 @@
-DashForge
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DashForge — Telemetry Dashboard Builder</title>
+  <meta name="description" content="DashForge turns racing telemetry into live dashboards, premium widgets, and replay-ready analysis tools. Build, customize, record, and visualize your driving data in a cockpit designed for performance." />
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-soft: #0b1118;
+      --card: rgba(255, 255, 255, 0.065);
+      --card-border: rgba(255, 255, 255, 0.11);
+      --text: rgba(255, 255, 255, 0.94);
+      --muted: rgba(255, 255, 255, 0.62);
+      --subtle: rgba(255, 255, 255, 0.38);
+      --accent: #6bbbc4;
+      --accent-2: #55e38d;
+      --danger: #ff5f68;
+      --warning: #ffb35c;
+      --radius: 28px;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 70% -10%, rgba(85, 227, 141, 0.22), transparent 35%),
+        radial-gradient(circle at 10% 10%, rgba(107, 187, 196, 0.20), transparent 34%),
+        linear-gradient(135deg, #030407, #071019 48%, #05070b);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .navlinks a {
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    .navlinks a:hover { background: rgba(255,255,255,0.07); color: white; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 38px;
+      align-items: center;
+      padding: 70px 0 82px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.055);
+      color: var(--muted);
+      font-size: 13px;
+      backdrop-filter: blur(16px);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 18px rgba(85, 227, 141, 0.8);
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      font-size: clamp(46px, 7vw, 86px);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #fff, #9ce8ef 45%, #75ef9d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 640px;
+      font-size: clamp(18px, 2.1vw, 22px);
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,0.07);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      backdrop-filter: blur(18px);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(107,187,196,0.95), rgba(85,227,141,0.82));
+      color: #031015;
+      border-color: transparent;
+      box-shadow: 0 18px 40px rgba(85, 227, 141, 0.18);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+      color: var(--subtle);
+      font-size: 13px;
+    }
+
+    .meta span {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mockup {
+      position: relative;
+      min-height: 540px;
+    }
+
+    .window {
+      position: relative;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.045));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(28px);
+    }
+
+    .window::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(85,227,141,0.16), transparent 35%),
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: auto, 34px 34px, 34px 34px;
+      pointer-events: none;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      z-index: 1;
+    }
+
+    .traffic { display: flex; gap: 8px; }
+    .traffic i { width: 12px; height: 12px; border-radius: 50%; display: block; opacity: 0.9; }
+    .traffic i:nth-child(1) { background: #ff5f57; }
+    .traffic i:nth-child(2) { background: #ffbd2e; }
+    .traffic i:nth-child(3) { background: #28c840; }
+
+    .status {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+    }
+
+    .dashboard {
+      position: relative;
+      z-index: 1;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-rows: 190px 156px 128px;
+      gap: 14px;
+      min-height: 460px;
+    }
+
+    .widget {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.068);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .widget::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -55% -20%;
+      height: 150px;
+      background: radial-gradient(circle, rgba(107,187,196,0.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .widget.large { grid-row: span 2; }
+
+    .widget-title {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .speed {
+      margin-top: 26px;
+      font-size: 74px;
+      line-height: 1;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+    }
+
+    .unit { color: var(--subtle); font-weight: 800; font-size: 12px; letter-spacing: 0.18em; }
+
+    .gear {
+      position: absolute;
+      right: 18px;
+      top: 54px;
+      width: 78px;
+      height: 78px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.08);
+      font-size: 46px;
+      font-weight: 950;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .bars { display: flex; align-items: end; gap: 6px; height: 86px; margin-top: 26px; }
+    .bar { flex: 1; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; position: relative; }
+    .bar i { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 999px; background: linear-gradient(to top, var(--accent), var(--accent-2)); box-shadow: 0 0 18px rgba(85,227,141,0.4); }
+
+    .trace {
+      height: 100%;
+      position: relative;
+      margin-top: 14px;
+      border-radius: 18px;
+      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 100% 33%, 20% 100%;
+    }
+
+    svg { width: 100%; height: 100%; overflow: visible; }
+
+    .features {
+      padding: 36px 0 72px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+      margin: 0 0 14px;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+      max-width: 760px;
+      margin: 0 0 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(18px);
+      min-height: 180px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(107,187,196,0.12);
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 { margin: 0 0 8px; font-size: 19px; letter-spacing: -0.025em; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 14px; }
+
+    .premium {
+      margin: 24px 0 72px;
+      border-radius: 38px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,179,92,0.16), transparent 38%),
+        linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .premium-list { display: grid; gap: 10px; margin-top: 22px; }
+    .premium-list div {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .premium-list b { color: var(--text); }
+
+    .mini-widgets {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mini {
+      min-height: 128px;
+      border-radius: 24px;
+      background: rgba(5,7,11,0.42);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mini strong { display: block; font-size: 12px; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 12px; }
+    .mini .big { font-size: 38px; font-weight: 950; letter-spacing: -0.05em; }
+    .mini .glow { position: absolute; inset: auto -40px -60px auto; width: 140px; height: 140px; border-radius: 50%; background: rgba(85,227,141,0.22); filter: blur(24px); }
+
+    .cta {
+      text-align: center;
+      padding: 72px 0 94px;
+    }
+
+    .cta-box {
+      border-radius: 42px;
+      padding: 44px 26px;
+      background: linear-gradient(135deg, rgba(107,187,196,0.12), rgba(85,227,141,0.08));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 28px 0 44px;
+      color: var(--subtle);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .premium { grid-template-columns: 1fr; }
+      .hero { padding-top: 34px; }
+      .grid { grid-template-columns: 1fr 1fr; }
+      .mockup { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .page { width: min(100% - 24px, 1180px); }
+      .navlinks { display: none; }
+      .hero { gap: 26px; padding-bottom: 52px; }
+      .actions { align-items: stretch; }
+      .btn { width: 100%; }
+      .dashboard { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .widget.large { grid-row: span 1; }
+      .grid, .mini-widgets { grid-template-columns: 1fr; }
+      .premium { padding: 20px; border-radius: 30px; }
+      footer { flex-direction: column; }
+    }
+
+    .screenshot-frame {
+      position: relative;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    }
+
+    .screenshot-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.08),
+          transparent 22%
+        );
+    }
+
+    .screenshot-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .premium-showcase {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .premium-showcase img {
+      width: 100%;
+      display: block;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.38);
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <main class="page">
+    <nav>
+      <a class="brand" href="#">
+        <img
+          class="brand-logo"
+          src="images/dashForge_logo.png"
+          alt="DashForge logo"
+        />
+
+        <span>DashForge</span>
+      </a>
+      <div class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#premium">Premium</a>
+        <a href="#download">Download</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Live telemetry · Replay · Premium HUDs</span>
+        <h1>Forge your <span class="gradient-text">telemetry cockpit.</span></h1>
+        <p class="lead">DashForge turns racing telemetry into live dashboards, premium widgets, and replay-ready analysis tools. Build, customize, record, and visualize your driving data in a cockpit designed for performance.</p>
+        <div class="actions">
+          <a class="btn primary" href="#download">Download</a>
+          <a class="btn" href="#premium">Explore premium widgets</a>
+          <a class="btn" href="#download">Get more dashboards</a>
+        </div>
+        <div class="meta">
+          <span>macOS · iOS</span>
+          <span>UDP telemetry</span>
+          <span>Custom dashboards and game profiles</span>
+        </div>
+      </div>
+
+      <div class="mockup" aria-label="DashForge Screenshot">
+        <div class="screenshot-frame">
+          <img
+            src="images/dashforge_screenshot.png"
+            alt="DashForge dashboard preview"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <h2 class="section-title">Everything you need to build your racing HUD</h2>
+
+      <p class="section-lead">
+        DashForge combines a visual dashboard builder, a replay engine, and customizable telemetry profiles.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">▦</div>
+          <h3>Dashboard Builder</h3>
+          <p>
+            Add, move, resize, and style widgets to create your perfect telemetry cockpit.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">◉</div>
+          <h3>Live UDP Telemetry</h3>
+          <p>
+            Receive real-time telemetry data from supported racing games and custom profiles.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">▶</div>
+          <h3>Record & Replay</h3>
+          <p>
+            Capture driving sessions and replay them later for analysis, testing, and comparison.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">JS</div>
+          <h3>Custom Profiles</h3>
+          <p>
+            Import JSON specifications to support new games, fields, and telemetry mappings.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">⇪</div>
+          <h3>Import / Export</h3>
+          <p>
+            Share dashboards with their assets and restore your cockpit setup instantly.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">◆</div>
+          <h3>Multi-Device</h3>
+          <p>
+            Designed for macOS and iOS with adaptive layouts and compact controls.
+          </p>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="premium" class="premium">
+      <div>
+        <span class="eyebrow">
+          <span class="dot"></span>
+          Premium Widgets Pack
+        </span>
+
+        <h2 class="section-title">
+          Advanced telemetry widgets built for serious racing setups.
+        </h2>
+
+        <p class="section-lead">
+          Race Control, G-Force Radar, Vehicle Balance, Drift Tyre HUD,
+          Car Dynamics, and live telemetry graphs — premium widgets designed
+          to turn raw telemetry into a serious racing cockpit.
+        </p>
+
+        <div class="premium-list">
+          <div>
+            ✓ <b>Race Control</b> — speed, gear, RPM, throttle, brake and redline.
+          </div>
+
+          <div>
+            ✓ <b>Car Dynamics</b> — pseudo-3D vehicle behavior visualization.
+          </div>
+
+          <div>
+            ✓ <b>Vehicle Balance</b> — understeer, oversteer and tyre stress analysis.
+          </div>
+
+          <div>
+            ✓ <b>Telemetry Graphs</b> — live traces and multi-channel telemetry graphs.
+          </div>
+        </div>
+      </div>
+
+      <div class="premium-showcase">
+        <img
+          src="images/dashforge_premium_widgets_showcase.png"
+          alt="DashForge premium widgets showcase"
+        />
+      </div>
+    </section>
+
+    <section id="download" class="cta">
+      <div class="cta-box">
+        <h2 class="section-title">Ready for the track ?</h2>
+        <p class="section-lead" style="margin-inline:auto;">Install DashForge, configure your UDP port, choose a dashboard template, and start building your telemetry cockpit.</p>
+        <div class="actions" style="justify-content:center;">
+          <a class="btn primary" href="#">Download on the App Store (Comming soon)</a>
+          <a class="btn" href="https://github.com/RedBGSoftware/DashForge/">Get more dashboards</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>DashForge © 2026 RedBGTeam</span>
+      <span>Telemetry dashboard builder · Premium racing HUDs</span>
+    </footer>
+  </main>
+</body>
+</html>

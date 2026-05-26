@@ -14,7 +14,7 @@ A profile describes:
 - transforms
 - telemetry mapping
 
----
+<br>
 
 # Profile Structure
 
@@ -22,6 +22,7 @@ A telemetry profile is defined as a JSON object.
 
 Example:
 
+```json
 {
   "id": "forza-horizon",
   "packetSize": 324,
@@ -34,10 +35,11 @@ Example:
     }
   ]
 }
+```
 
----
+<br>
 
-# Root Properties
+## Root Properties
 
 | Property | Type | Description |
 |---|---|---|
@@ -46,9 +48,9 @@ Example:
 | endianness | string | little or big |
 | fields | array | Telemetry field definitions |
 
----
+<br>
 
-# Endianness
+## Endianness
 
 Supported values:
 
@@ -61,24 +63,26 @@ Most racing games use:
 
     "little"
 
----
+<br>
 
-# Field Definition
+## Field Definition
 
 Each telemetry field describes how DashForge should decode a value from the UDP packet.
 
 Example:
 
+```json
 {
   "target": "currentEngineRpm",
   "offset": 16,
   "type": "f32",
   "scale": 1.0
 }
+```
 
----
+<br>
 
-# Field Properties
+## Field Properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
@@ -88,9 +92,9 @@ Example:
 | scale | number | No | Multiplier applied after decoding |
 | transform | string | No | Additional value transform |
 
----
+<br>
 
-# Supported Value Types
+## Supported Value Types
 
 DashForge currently supports:
 
@@ -104,9 +108,9 @@ DashForge currently supports:
 | s32 | Signed 32-bit integer | 4 bytes |
 | f32 | 32-bit floating point | 4 bytes |
 
----
+<br>
 
-# Supported Transforms
+## Supported Transforms
 
 Transforms are applied after scaling.
 
@@ -118,20 +122,43 @@ Transforms are applied after scaling.
 
 Example:
 
+```json
 {
   "target": "speedKmh",
   "offset": 120,
   "type": "f32",
   "transform": "msToKmh"
 }
+```
 
+<br>
+
+## Scaling
+
+The scale property allows modifying decoded values.
+
+Example:
+
+```json
+{
+  "target": "boost",
+  "offset": 88,
+  "type": "u16",
+  "scale": 0.1
+}
+```
+
+Decoded value:
+
+    rawValue * scale
+    
 ---
 
 # Supported Telemetry Targets
 
 DashForge can currently map the following telemetry fields.
 
----
+<br>
 
 ## Session
 
@@ -140,7 +167,7 @@ DashForge can currently map the following telemetry fields.
 | isRaceOn |
 | timestampMS |
 
----
+<br>
 
 ## Engine
 
@@ -150,7 +177,7 @@ DashForge can currently map the following telemetry fields.
 | engineIdleRpm |
 | currentEngineRpm |
 
----
+<br>
 
 ## Speed & Power
 
@@ -164,7 +191,7 @@ DashForge can currently map the following telemetry fields.
 | boost |
 | fuel |
 
----
+<br>
 
 ## Vehicle Position
 
@@ -174,7 +201,7 @@ DashForge can currently map the following telemetry fields.
 | positionY |
 | positionZ |
 
----
+<br>
 
 ## Driver Inputs
 
@@ -187,29 +214,12 @@ DashForge can currently map the following telemetry fields.
 | gear |
 | steer |
 
----
-
-# Scaling
-
-The scale property allows modifying decoded values.
-
-Example:
-
-{
-  "target": "boost",
-  "offset": 88,
-  "type": "u16",
-  "scale": 0.1
-}
-
-Decoded value:
-
-    rawValue * scale
 
 ---
 
 # Full Example
 
+```json
 {
   "id": "example-racing-game",
   "packetSize": 256,
@@ -238,6 +248,7 @@ Decoded value:
     }
   ]
 }
+```
 
 ---
 
@@ -264,7 +275,7 @@ If the received UDP packet size does not match:
 
 the packet is ignored.
 
----
+<br>
 
 ## Offsets
 
@@ -277,7 +288,7 @@ Example:
 means:
 - start reading at byte 120
 
----
+<br>
 
 ## Unsupported Fields
 

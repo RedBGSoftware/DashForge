@@ -14,8 +14,6 @@ This system allows users to:
 
 ---
 
-<br>
-
 ## Exporting Dashboards
 
 To export a dashboard:
@@ -69,8 +67,6 @@ Dashboard exports may contain:
 
 ---
 
-<br>
-
 ## Importing Dashboards
 
 To import a dashboard:
@@ -90,8 +86,6 @@ Imported dashboards automatically restore:
 <br>
 
 ---
-
-<br>
 
 ## Dashboard Compatibility
 
@@ -130,8 +124,6 @@ together.
 
 ---
 
-<br>
-
 ## Community Templates
 
 Community dashboard templates are available in:
@@ -147,8 +139,6 @@ Users can:
 <br>
 
 ---
-
-<br>
 
 ## Recommendations
 
@@ -175,7 +165,6 @@ especially before updating the app.
 
 ---
 
-<br>
 
 ## Future Improvements
 

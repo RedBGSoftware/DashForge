@@ -269,9 +269,6 @@ Invalid fields are ignored automatically.
 
 ---
 
-<br>
-
-
 ## Important Notes
 
 ### Packet Size
@@ -305,8 +302,6 @@ Unknown telemetry targets are ignored safely.
 
 ---
 
-<br>
-
 ## Community Profiles
 
 Profiles are stored in:
@@ -318,8 +313,6 @@ Community contributions are welcome.
 <br>
 
 ---
-
-<br>
 
 
 ## Recommendations

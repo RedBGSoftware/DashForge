@@ -28,8 +28,6 @@ Create immersive racing HUDs, visualize live telemetry, replay sessions, and bui
 
 ---
 
-<br>
-
 # ✨ Features
 
 ### 🏎 Live UDP Telemetry
@@ -94,9 +92,6 @@ Future premium widgets are included with the purchase.
 
 ---
 
-<br>
-
-
 # 🧩 Dashboard Templates
 
 Community dashboard templates are available here:
@@ -159,8 +154,6 @@ Recommended starting points:
 <br>
 
 ---
-
-<br>
 
 # 🚀 App Store
 

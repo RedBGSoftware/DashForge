@@ -2,9 +2,9 @@
 
 DashForge receives telemetry data using UDP packets sent by racing games.
 
----
+<br>
 
-# Finding Your Device IP
+## Finding Your Device IP
 
 Your game must send telemetry data to the device running DashForge.
 
@@ -12,9 +12,9 @@ Example local IP:
 
     192.168.1.42
 
----
+<br>
 
-# Default Port
+## Default Port
 
 DashForge default UDP port:
 
@@ -22,9 +22,9 @@ DashForge default UDP port:
 
 You can change the port inside the app settings.
 
----
+<br>
 
-# Typical Game Configuration
+## Typical Game Configuration
 
 Most games provide telemetry options similar to:
 
@@ -34,11 +34,11 @@ Most games provide telemetry options similar to:
 | IP Address | 192.168.1.42 |
 | Port | 8000 |
 
----
+<br>
 
-# Troubleshooting
+## Troubleshooting
 
-## No telemetry received
+### No telemetry received
 
 Check:
 - game telemetry enabled
@@ -47,9 +47,9 @@ Check:
 - firewall permissions
 - same local network
 
----
+<br>
 
-## Firewall Issues
+### Firewall Issues
 
 macOS may block incoming UDP packets.
 
@@ -57,9 +57,9 @@ Allow DashForge in:
 
     System Settings → Network → Firewall
 
----
+<br>
 
-# Supported Games
+## Supported Games
 
 Currently supported:
 - Forza Horizon 6

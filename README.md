@@ -101,9 +101,7 @@ Future premium widgets are included with the purchase.
 
 Community dashboard templates are available here:
 
-```text
-/templates/dashboards
-```
+[Dashboard Templates](templates/dashboards)
 
 You can:
 
@@ -139,9 +137,7 @@ This allows the community to:
 * create custom mappings
 * share integrations
 
-```text
-/templates/game-profiles
-```
+[Game Profiles](templates/game-profiles)
 
 
 <br>
@@ -151,16 +147,14 @@ This allows the community to:
 
 Documentation is available in:
 
-```text
-/docs
-```
+[Doc](docs/)
 
 Recommended starting points:
 
-* getting-started.md
-* udp-setup.md
-* import-export.md
-* custom-game-profiles.md
+* [Getting Started](docs/getting-started.md)
+* [UDP Setup](docs/udp-setup.md)
+* [Import / Export](docs/import-export.md)
+* [Custom Game Profiles](docs/custom-game-profiles.md)
 
 <br>
 
@@ -198,10 +192,7 @@ DashForge does not collect or transmit personal telemetry data.
 Telemetry processing remains local on the user’s device.
 
 See:
-
-```text
-/privacy.html
-```
+[Privacy Policy](https://redbgsoftware.github.io/DashForge/privacy.html)
 
 <br>
 

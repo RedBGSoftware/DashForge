@@ -16,7 +16,7 @@ A profile describes:
 
 <br>
 
-# Profile Structure
+## Profile Structure
 
 A telemetry profile is defined as a JSON object.
 
@@ -39,7 +39,7 @@ Example:
 
 <br>
 
-## Root Properties
+### Root Properties
 
 | Property | Type | Description |
 |---|---|---|
@@ -50,7 +50,7 @@ Example:
 
 <br>
 
-## Endianness
+### Endianness
 
 Supported values:
 
@@ -65,7 +65,7 @@ Most racing games use:
 
 <br>
 
-## Field Definition
+### Field Definition
 
 Each telemetry field describes how DashForge should decode a value from the UDP packet.
 
@@ -82,7 +82,7 @@ Example:
 
 <br>
 
-## Field Properties
+### Field Properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
@@ -94,7 +94,7 @@ Example:
 
 <br>
 
-## Supported Value Types
+### Supported Value Types
 
 DashForge currently supports:
 
@@ -110,7 +110,7 @@ DashForge currently supports:
 
 <br>
 
-## Supported Transforms
+### Supported Transforms
 
 Transforms are applied after scaling.
 
@@ -133,7 +133,7 @@ Example:
 
 <br>
 
-## Scaling
+### Scaling
 
 The scale property allows modifying decoded values.
 
@@ -152,15 +152,17 @@ Decoded value:
 
     rawValue * scale
     
----
+<br>
 
-# Supported Telemetry Targets
+
+
+## Supported Telemetry Targets
 
 DashForge can currently map the following telemetry fields.
 
 <br>
 
-## Session
+### Session
 
 | Target |
 |---|
@@ -169,7 +171,7 @@ DashForge can currently map the following telemetry fields.
 
 <br>
 
-## Engine
+### Engine
 
 | Target |
 |---|
@@ -179,7 +181,7 @@ DashForge can currently map the following telemetry fields.
 
 <br>
 
-## Speed & Power
+### Speed & Power
 
 | Target |
 |---|
@@ -193,7 +195,7 @@ DashForge can currently map the following telemetry fields.
 
 <br>
 
-## Vehicle Position
+### Vehicle Position
 
 | Target |
 |---|
@@ -203,7 +205,7 @@ DashForge can currently map the following telemetry fields.
 
 <br>
 
-## Driver Inputs
+### Driver Inputs
 
 | Target |
 |---|
@@ -215,9 +217,9 @@ DashForge can currently map the following telemetry fields.
 | steer |
 
 
----
+<br>
 
-# Full Example
+## Full Example
 
 ```json
 {
@@ -250,9 +252,9 @@ DashForge can currently map the following telemetry fields.
 }
 ```
 
----
+<br>
 
-# Validation Rules
+## Validation Rules
 
 DashForge validates:
 - packet size
@@ -263,11 +265,16 @@ DashForge validates:
 
 Invalid fields are ignored automatically.
 
+<br>
+
 ---
 
-# Important Notes
+<br>
 
-## Packet Size
+
+## Important Notes
+
+### Packet Size
 
 If the received UDP packet size does not match:
 
@@ -290,13 +297,17 @@ means:
 
 <br>
 
-## Unsupported Fields
+### Unsupported Fields
 
 Unknown telemetry targets are ignored safely.
 
+<br>
+
 ---
 
-# Community Profiles
+<br>
+
+## Community Profiles
 
 Profiles are stored in:
 
@@ -304,9 +315,14 @@ Profiles are stored in:
 
 Community contributions are welcome.
 
+<br>
+
 ---
 
-# Recommendations
+<br>
+
+
+## Recommendations
 
 When creating a new profile:
 

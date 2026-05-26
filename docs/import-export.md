@@ -10,9 +10,13 @@ This system allows users to:
 - distribute community templates
 - restore complete cockpit configurations
 
+<br>
+
 ---
 
-# Exporting Dashboards
+<br>
+
+## Exporting Dashboards
 
 To export a dashboard:
 
@@ -26,9 +30,9 @@ DashForge generates an export package containing:
 - styles and themes
 - associated assets
 
----
+<br>
 
-# Export Format
+## Export Format
 
 Dashboards are exported as JSON-based packages.
 
@@ -46,9 +50,9 @@ Example structure:
   ]
 }
 
----
+<br>
 
-# What Is Included
+## What Is Included
 
 Dashboard exports may contain:
 
@@ -61,9 +65,13 @@ Dashboard exports may contain:
 | Images / assets | Optional |
 | Replay files | No |
 
+<br>
+
 ---
 
-# Importing Dashboards
+<br>
+
+## Importing Dashboards
 
 To import a dashboard:
 
@@ -79,9 +87,13 @@ Imported dashboards automatically restore:
 - styles
 - telemetry bindings
 
+<br>
+
 ---
 
-# Dashboard Compatibility
+<br>
+
+## Dashboard Compatibility
 
 Older dashboard versions may not support:
 - newer widgets
@@ -90,18 +102,18 @@ Older dashboard versions may not support:
 
 DashForge attempts to preserve unsupported widgets when possible.
 
----
+<br>
 
-# Premium Widgets
+## Premium Widgets
 
 Some imported dashboards may require:
 - Premium Widgets Pack
 - specific telemetry fields
 - compatible game profiles
 
----
+<br>
 
-# Assets
+## Assets
 
 Some dashboards may include:
 - overlay images
@@ -114,9 +126,13 @@ When sharing dashboards, keep:
 
 together.
 
+<br>
+
 ---
 
-# Community Templates
+<br>
+
+## Community Templates
 
 Community dashboard templates are available in:
 
@@ -128,9 +144,13 @@ Users can:
 - distribute telemetry setups
 - build game-specific cockpit layouts
 
+<br>
+
 ---
 
-# Recommendations
+<br>
+
+## Recommendations
 
 For the best compatibility:
 
@@ -139,9 +159,9 @@ For the best compatibility:
 - test imported dashboards before competitive sessions
 - keep game profiles updated
 
----
+<br>
 
-# Backup Recommendation
+## Backup Recommendation
 
 It is recommended to periodically backup:
 - dashboards
@@ -151,9 +171,13 @@ It is recommended to periodically backup:
 
 especially before updating the app.
 
+<br>
+
 ---
 
-# Future Improvements
+<br>
+
+## Future Improvements
 
 Future DashForge versions may include:
 - cloud sync

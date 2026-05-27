@@ -12,6 +12,7 @@
     <a href="https://redbgsoftware.github.io/DashForge/">Website</a> •
     <a href="docs/">Documentation</a> •
     <a href="https://redbgsoftware.github.io/DashForge/privacy.html">Privacy</a> •
+    <a href="CHANGELOG.md">Changelog</a> •
     <a href="#">App Store</a>
   </sub>
 </p>

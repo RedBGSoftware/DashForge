@@ -1,0 +1,14 @@
+[
+  {
+    "id": "initial-d-touge",
+    "name": "Initial D Touge",
+    "author": "RedBG Software",
+    "version": "1.0.0",
+    "type": "dashboard",
+    "description": "Japanese mountain night telemetry dashboard.",
+    "preview": "preview.png",
+    "download": "initial-d-touge.dfdash",
+    "premium": false,
+    "minAppVersion": "1.0.0"
+  }
+]

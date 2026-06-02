@@ -7,7 +7,7 @@
     "type": "dashboard",
     "description": "Japanese mountain night telemetry dashboard.",
     "preview": "preview.png",
-    "download": "initial-d-touge.dfdash",
+    "download": "initial-d-touge/initial-d-touge.dfdash",
     "premium": false,
     "minAppVersion": "1.0.0"
   }

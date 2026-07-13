@@ -1,5 +1,6 @@
 # 📚 DashForge Documentation
 
+v1.0
 Welcome to the official DashForge documentation.
 
 ## Getting Started

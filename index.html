@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DashForge — Telemetry Dashboard Builder</title>
-  <meta name="description" content="DashForge turns racing telemetry into live dashboards, premium widgets, and replay-ready analysis tools. Build, customize, record, and visualize your driving data in a cockpit designed for performance." />
+  <title>DashForge 1.1 — Telemetry, Replay and Racing Analysis</title>
+  <meta name="description" content="DashForge 1.1 turns racing telemetry into custom dashboards, recordings, session analysis, hardware output, and secure local sharing across macOS and iOS." />
   <style>
     :root {
       --bg: #05070b;
@@ -24,6 +24,10 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-padding-top: 118px;
+    }
+
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,6 +41,10 @@
     }
 
     a { color: inherit; text-decoration: none; }
+
+    section[id] {
+      scroll-margin-top: 118px;
+    }
 
     .noise {
       position: fixed;
@@ -61,7 +69,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 26px 0;
+      gap: 16px;
+      padding: 14px 18px;
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      margin: 12px 0 28px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    nav.is-scrolled {
+      background: rgba(5, 7, 11, 0.72);
+      border-color: rgba(255,255,255,0.10);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
     }
 
     .brand {
@@ -94,6 +118,36 @@
 
     .navlinks a:hover { background: rgba(255,255,255,0.07); color: white; }
 
+    .nav-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.065);
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-toggle span,
+    .nav-toggle::before,
+    .nav-toggle::after {
+      content: "";
+      display: block;
+      width: 17px;
+      height: 2px;
+      margin: 4px auto;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-toggle[aria-expanded="true"] span { opacity: 0; }
+    .nav-toggle[aria-expanded="true"]::before { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"]::after { transform: translateY(-6px) rotate(-45deg); }
+
     .hero {
       display: grid;
       grid-template-columns: 1.02fr 0.98fr;
@@ -106,6 +160,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      margin-bottom: 10px;
       padding: 8px 12px;
       border: 1px solid var(--card-border);
       border-radius: 999px;
@@ -127,7 +182,7 @@
       margin: 22px 0 18px;
       font-size: clamp(46px, 7vw, 86px);
       line-height: 0.92;
-      letter-spacing: -0.07em;
+      letter-spacing: -0.00em;
     }
 
     .gradient-text {
@@ -371,6 +426,128 @@
     .card h3 { margin: 0 0 8px; font-size: 19px; letter-spacing: -0.025em; }
     .card p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 14px; }
 
+    .release {
+      padding: 12px 0 72px;
+    }
+
+    .release-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .release-item {
+      padding: 24px;
+      min-height: 180px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+    }
+
+    .release-item .number {
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .release-item h3 { margin: 14px 0 8px; font-size: 22px; }
+    .release-item p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .games {
+      padding: 0 0 72px;
+    }
+
+    .games-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .game-row {
+      display: grid;
+      grid-template-columns: minmax(190px, 1fr) minmax(130px, 0.46fr) minmax(190px, 0.74fr);
+      gap: 18px;
+      align-items: center;
+      padding: 16px 20px;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.065), rgba(255,255,255,0.035));
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-row::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 22px rgba(18,213,202,0.42);
+      pointer-events: none;
+    }
+
+    .game-row.bridge::before { background: #ffb35c; box-shadow: 0 0 22px rgba(255,179,92,0.36); }
+    .game-row.custom::before { background: #8d7cff; box-shadow: 0 0 22px rgba(141,124,255,0.34); }
+
+    .game-name {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .game-support {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .game-row.bridge .game-support { color: #ffb35c; }
+    .game-row.custom .game-support { color: #b9adff; }
+
+    .game-method {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .games-footnote {
+      margin: 16px 0 0;
+      color: var(--subtle);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .ecosystem {
+      padding: 0 0 72px;
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .ecosystem-card {
+      padding: 26px;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .ecosystem-card h3 { margin: 0 0 10px; font-size: 24px; }
+    .ecosystem-card p { color: var(--muted); line-height: 1.55; }
+
     .premium {
       margin: 24px 0 72px;
       border-radius: 38px;
@@ -439,19 +616,64 @@
     @media (max-width: 900px) {
       .hero, .premium { grid-template-columns: 1fr; }
       .hero { padding-top: 34px; }
-      .grid { grid-template-columns: 1fr 1fr; }
+      .grid, .release-grid, .ecosystem-grid { grid-template-columns: 1fr; }
       .mockup { min-height: auto; }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       .page { width: min(100% - 24px, 1180px); }
-      .navlinks { display: none; }
-      .hero { gap: 26px; padding-bottom: 52px; }
+
+      nav {
+        top: 10px;
+        padding: 10px 12px;
+        margin-top: 10px;
+        border-color: rgba(255,255,255,0.08);
+        background: rgba(5, 7, 11, 0.60);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+
+      .brand-logo { width: 36px; height: 36px; }
+      .brand span { font-size: 15px; }
+      .nav-toggle { display: block; }
+
+      .navlinks {
+        display: grid;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 10px);
+        padding: 10px;
+        border-radius: 24px;
+        background: rgba(5, 7, 11, 0.88);
+        border: 1px solid rgba(255,255,255,0.10);
+        box-shadow: 0 22px 60px rgba(0,0,0,0.42);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      nav.nav-open .navlinks {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .navlinks a {
+        padding: 13px 14px;
+        border-radius: 16px;
+      }
+
+      .hero { gap: 26px; padding-top: 20px; padding-bottom: 52px; }
       .actions { align-items: stretch; }
       .btn { width: 100%; }
       .dashboard { grid-template-columns: 1fr; grid-template-rows: auto; }
       .widget.large { grid-row: span 1; }
-      .grid, .mini-widgets { grid-template-columns: 1fr; }
+      .grid, .mini-widgets, .release-grid, .ecosystem-grid { grid-template-columns: 1fr; }
+      .game-row { grid-template-columns: 1fr; gap: 8px; }
       .premium { padding: 20px; border-radius: 30px; }
       footer { flex-direction: column; }
     }
@@ -515,34 +737,41 @@
 
         <span>DashForge</span>
       </a>
-      <div class="navlinks">
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navlinks">
+        <span></span>
+      </button>
+      <div class="navlinks" id="navlinks">
         <a href="#features">Features</a>
+        <a href="#v110">What's new</a>
+        <a href="#games">Supported games</a>
+        <a href="#ecosystem">Bridge &amp; Lab</a>
         <a href="#premium">Premium</a>
         <a href="#download">Download</a>
+        <a href="https://redbgsoftware.github.io/DashForge/docs/">Docs</a>
       </div>
     </nav>
 
     <section class="hero">
       <div>
-        <span class="eyebrow"><span class="dot"></span> Live telemetry · Replay · Premium HUDs</span>
-        <h1>Forge your <span class="gradient-text">telemetry cockpit.</span></h1>
-        <p class="lead">DashForge turns racing telemetry into live dashboards, premium widgets, and replay-ready analysis tools. Build, customize, record, and visualize your driving data in a cockpit designed for performance.</p>
+        <span class="eyebrow"><span class="dot"></span> DashForge v1.1 comming soon !</span>
+        <h1>DashForge. <span class="gradient-text">Your telemetry cockpit.</span></h1>
+        <p class="lead">Build a live racing HUD, capture and analyze sessions, connect custom hardware, and share your setup securely across nearby devices.</p>
         <div class="actions">
           <a class="btn primary" href="#download">Download</a>
-          <a class="btn" href="#premium">Explore premium widgets</a>
-          <a class="btn" href="#download">Get more dashboards</a>
+          <a class="btn" href="#v110">Explore version 1.1</a>
+          <a class="btn" href="#premium">Premium widgets</a>
         </div>
         <div class="meta">
           <span>macOS · iOS</span>
           <span>UDP telemetry</span>
-          <span>Custom dashboards and game profiles</span>
+          <span>Dashboards · Sessions · Analysis</span>
         </div>
       </div>
 
       <div class="mockup" aria-label="DashForge Screenshot">
         <div class="screenshot-frame">
           <img
-            src="images/dashforge_screenshot.png"
+            src="images/dashforge_screenshot_v1.1.0.png"
             alt="DashForge dashboard preview"
           />
         </div>
@@ -575,9 +804,9 @@
 
         <article class="card">
           <div class="card-icon">▶</div>
-          <h3>Record & Replay</h3>
+          <h3>Record, Replay &amp; Analyze</h3>
           <p>
-            Capture driving sessions and replay them later for analysis, testing, and comparison.
+            Capture raw telemetry, organize sessions, inspect track traces, and review driving events.
           </p>
         </article>
 
@@ -591,9 +820,9 @@
 
         <article class="card">
           <div class="card-icon">⇪</div>
-          <h3>Import / Export</h3>
+          <h3>Nearby Sharing</h3>
           <p>
-            Share dashboards with their assets and restore your cockpit setup instantly.
+            Send dashboards, recordings, and complete sessions after receiver confirmation.
           </p>
         </article>
 
@@ -603,6 +832,108 @@
           <p>
             Designed for macOS and iOS with adaptive layouts and compact controls.
           </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="v110" class="release">
+      <h2 class="section-title">From live dashboard to complete telemetry workflow</h2>
+      <span class="eyebrow"><span class="dot"></span> New in version 1.1.0</span>
+      <p class="section-lead">Connects capture, analysis, devices, and development tools without moving your racing data to a cloud service.</p>
+
+      <div class="release-grid">
+        <article class="release-item">
+          <span class="number">01 · SESSIONS</span>
+          <h3>Trace, events, and coaching</h3>
+          <p>Group recordings, cache analysis, inspect lockups and driving events, and bring the same engine onto the dashboard with Live Trace.</p>
+        </article>
+        <article class="release-item">
+          <span class="number">02 · NETWORK</span>
+          <h3>Secure local sharing</h3>
+          <p>Discover nearby DashForge apps, review every incoming request before transfer, and share dashboards, recordings, or sessions with linked files.</p>
+        </article>
+        <article class="release-item">
+          <span class="number">03 · HARDWARE</span>
+          <h3>Send only what your device needs</h3>
+          <p>Choose telemetry fields for UDP or serial output and drive ESP32, Arduino, shift-light, gear-display, and custom hardware projects.</p>
+        </article>
+        <article class="release-item">
+          <span class="number">04 · PERFORMANCE</span>
+          <h3>Built for long sessions</h3>
+          <p>Background library refresh, parser-aware replay, configurable UI rate, and an optional performance overlay help keep live and replay workflows observable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="games" class="games">
+      <h2 class="section-title">Built for the racing games that expose telemetry</h2>
+      <span class="eyebrow"><span class="dot"></span> Supported games</span>
+      <p class="section-lead">
+        Built-in parsers, companion plugins, Bridge integrations, and custom UDP profiles.
+      </p>
+
+      <div class="games-list">
+        <article class="game-row">
+          <h3 class="game-name">Forza Horizon 6</h3>
+          <div class="game-support">Built-in</div>
+          <p class="game-method">Native UDP parser</p>
+        </article>
+
+        <article class="game-row">
+          <h3 class="game-name">F1 24 / F1 25</h3>
+          <div class="game-support">Built-in</div>
+          <p class="game-method">Native UDP parser</p>
+        </article>
+
+        <article class="game-row">
+          <h3 class="game-name">Euro Truck Simulator 2</h3>
+          <div class="game-support">Plugin</div>
+          <p class="game-method">SCS telemetry plugin</p>
+        </article>
+
+        <article class="game-row">
+          <h3 class="game-name">American Truck Simulator 2</h3>
+          <div class="game-support">Plugin</div>
+          <p class="game-method">SCS telemetry plugin</p>
+        </article>
+
+        <article class="game-row bridge">
+          <h3 class="game-name">Assetto Corsa</h3>
+          <div class="game-support">Bridge</div>
+          <p class="game-method">Shared memory bridge</p>
+        </article>
+
+        <article class="game-row bridge">
+          <h3 class="game-name">Assetto Corsa Competizione</h3>
+          <div class="game-support">Bridge</div>
+          <p class="game-method">Shared memory bridge</p>
+        </article>
+
+        <article class="game-row custom">
+          <h3 class="game-name">Custom UDP profiles</h3>
+          <div class="game-support">Custom</div>
+          <p class="game-method">JSON profile</p>
+        </article>
+
+        <p class="games-footnote">
+          DashForge Lab can also generate sample telemetry and `.dfrec` replays to test dashboards without launching a game.
+        </p>
+      </div>
+    </section>
+
+    <section id="ecosystem" class="ecosystem">
+      <h2 class="section-title">One cockpit, more ways to connect</h2>
+      <p class="section-lead">DashForge ships with focused companion tools for Windows integrations and repeatable development tests.</p>
+      <div class="ecosystem-grid">
+        <article class="ecosystem-card">
+          <h3>DashForge Bridge</h3>
+          <p>A portable Windows companion for Assetto Corsa shared memory and dashboard-triggered keyboard, Win32, or mouse commands.</p>
+          <!--<a class="btn" href="https://redbgsoftware.github.io/DashForge/docs/dashforge-bridge.html">Bridge guide</a>-->
+        </article>
+        <article class="ecosystem-card">
+          <h3>DashForge Lab</h3>
+          <p>An internal macOS simulator for generated game telemetry, `.dfrec` replay, hardware receivers, and a keyboard, mouse, or gamepad-driven 3D vehicle.</p>
+          <!--<a class="btn" href="https://redbgsoftware.github.io/DashForge/docs/dashforge-lab.html">Lab guide</a>-->
         </article>
       </div>
     </section>
@@ -641,6 +972,10 @@
           <div>
             ✓ <b>Telemetry Graphs</b> — live traces and multi-channel telemetry graphs.
           </div>
+
+          <div>
+            ✓ <b>and more ...</b>
+          </div>
         </div>
       </div>
 
@@ -654,11 +989,12 @@
 
     <section id="download" class="cta">
       <div class="cta-box">
-        <h2 class="section-title">Ready for the track ?</h2>
-        <p class="section-lead" style="margin-inline:auto;">Install DashForge, configure your UDP port, choose a dashboard template, and start building your telemetry cockpit.</p>
+        <h2 class="section-title">Get ready for the track</h2>
+        <p class="section-lead" style="margin-inline:auto;">Install DashForge, configure your game, choose a dashboard template, and start building your telemetry cockpit.</p>
         <div class="actions" style="justify-content:center;">
-          <a class="btn primary" href="https://apps.apple.com/fr/app/dashforge/id6772732368">Download on the App Store</a>
-          <a class="btn" href="https://github.com/RedBGSoftware/DashForge/">Get more dashboards</a>
+          <a class="btn primary" href="https://apps.apple.com/fr/app/dashforge/id6772732368">Download on the App Store v1.0</a>
+          <!--<a class="btn" href="https://redbgsoftware.github.io/DashForge/docs/whats-new-1.1.html">What's new in 1.1</a>-->
+          <a class="btn" href="https://redbgsoftware.github.io/DashForge/docs/">Open documentation</a>
         </div>
       </div>
     </section>
@@ -668,5 +1004,33 @@
       <span>Telemetry dashboard builder · Premium racing HUDs</span>
     </footer>
   </main>
+
+  <script>
+    const nav = document.querySelector("nav");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelectorAll(".navlinks a");
+
+    function updateNavBackground() {
+      nav.classList.toggle("is-scrolled", window.scrollY > 12);
+    }
+
+    navToggle?.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("nav-open");
+        navToggle?.setAttribute("aria-expanded", "false");
+        navToggle?.setAttribute("aria-label", "Open navigation");
+      });
+    });
+
+    window.addEventListener("scroll", updateNavBackground, { passive: true });
+    updateNavBackground();
+  </script>
 </body>
+
 </html>

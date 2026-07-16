@@ -10,5 +10,17 @@
     "download": "initial-d-touge/initial-d-touge.dfdash",
     "premium": false,
     "minAppVersion": "1.0.0"
+  },
+  {
+    "id": "neon",
+    "name": "Neon",
+    "author": "RedBG Software",
+    "version": "1.0.0",
+    "type": "dashboard",
+    "description": "High-contrast racing telemetry dashboard.",
+    "preview": "preview.png",
+    "download": "neon/neon.dfdash",
+    "premium": false,
+    "minAppVersion": "1.1.0"
   }
 ]

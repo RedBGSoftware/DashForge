@@ -4,7 +4,7 @@ All notable changes to DashForge will be documented in this file.
 
 ---
 
-## v1.1.0 - Upcoming
+## v1.1.0 - Published
 
 ### Added
 

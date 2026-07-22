@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-user/user-tutorial" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Complete User Tutorial | DashForge Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://redbgsoftware.github.io/DashForge/docs/img/dashforge_screenshot.png"><meta data-rh="true" name="twitter:image" content="https://redbgsoftware.github.io/DashForge/docs/img/dashforge_screenshot.png"><meta data-rh="true" property="og:url" content="https://redbgsoftware.github.io/DashForge/docs/user/user-tutorial"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Complete User Tutorial | DashForge Docs"><meta data-rh="true" name="description" content="This tutorial walks through DashForge from first launch to a complete telemetry cockpit."><meta data-rh="true" property="og:description" content="This tutorial walks through DashForge from first launch to a complete telemetry cockpit."><link data-rh="true" rel="icon" href="/DashForge/docs/img/dashforge_logo.png"><link data-rh="true" rel="canonical" href="https://redbgsoftware.github.io/DashForge/docs/user/user-tutorial"><link data-rh="true" rel="alternate" href="https://redbgsoftware.github.io/DashForge/docs/user/user-tutorial" hreflang="en"><link data-rh="true" rel="alternate" href="https://redbgsoftware.github.io/DashForge/docs/user/user-tutorial" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Complete User Tutorial","item":"https://redbgsoftware.github.io/DashForge/docs/user/user-tutorial"}]}</script><link rel="stylesheet" href="/DashForge/docs/assets/css/styles.41276112.css">
+<script src="/DashForge/docs/assets/js/runtime~main.0aa3bb25.js" defer="defer"></script>
+<script src="/DashForge/docs/assets/js/main.070a3bff.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"dark"),document.documentElement.setAttribute("data-theme-choice",t||"dark")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/DashForge/docs/img/dashforge_logo.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/DashForge/docs/"><div class="navbar__logo"><img src="/DashForge/docs/img/dashforge_logo.png" alt="DashForge logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/DashForge/docs/img/dashforge_logo.png" alt="DashForge logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">DashForge</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/DashForge/docs/">User Docs</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/DashForge/docs/user/whats-new-1.1">v1.1.0</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/DashForge/docs/"><span title="DashForge Documentation" class="linkLabel_WmDU">DashForge Documentation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/DashForge/docs/user/getting-started"><span title="1. Start Here" class="categoryLinkLabel_W154">1. Start Here</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/DashForge/docs/user/getting-started"><span title="Getting Started" class="linkLabel_WmDU">Getting Started</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/DashForge/docs/user/user-tutorial"><span title="Complete User Tutorial" class="linkLabel_WmDU">Complete User Tutorial</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/DashForge/docs/user/whats-new-1.1"><span title="What&#x27;s New in DashForge 1.1.0" class="linkLabel_WmDU">What&#x27;s New in DashForge 1.1.0</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/DashForge/docs/user/downloads"><span title="Downloads And Companion Tools" class="linkLabel_WmDU">Downloads And Companion Tools</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/DashForge/docs/user/supported-games"><span title="2. Connect Telemetry" class="categoryLinkLabel_W154">2. Connect Telemetry</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/DashForge/docs/user/dashboard-builder"><span title="3. Dashboards and Sessions" class="categoryLinkLabel_W154">3. Dashboards and Sessions</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/DashForge/docs/user/game-control"><span title="4. Hardware and Automation" class="categoryLinkLabel_W154">4. Hardware and Automation</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/DashForge/docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">1. Start Here</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Complete User Tutorial</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Complete User Tutorial</h1></header>
+<p>This tutorial walks through DashForge from first launch to a complete telemetry cockpit.</p>
+<p>Use it as a checklist when installing the app on a new machine, preparing a race night,
+or explaining DashForge to another driver.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-you-will-build">What You Will Build<a href="#what-you-will-build" class="hash-link" aria-label="Direct link to What You Will Build" title="Direct link to What You Will Build" translate="no">​</a></h2>
+<p>At the end of this guide you will have:</p>
+<ul>
+<li class="">live telemetry connected to DashForge</li>
+<li class="">a multi-page dashboard with useful widgets</li>
+<li class="">replay recording and session analysis ready</li>
+<li class="">optional network sharing between DashForge devices</li>
+<li class="">optional hardware output, Bass Shakers, Bridge commands, and AI control</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-choose-your-telemetry-source">1. Choose Your Telemetry Source<a href="#1-choose-your-telemetry-source" class="hash-link" aria-label="Direct link to 1. Choose Your Telemetry Source" title="Direct link to 1. Choose Your Telemetry Source" translate="no">​</a></h2>
+<p>DashForge can receive telemetry in several ways.</p>
+<table><thead><tr><th>Source</th><th>Use it when</th></tr></thead><tbody><tr><td>Game UDP</td><td>The game can send UDP packets directly to DashForge</td></tr><tr><td>DashForge Bridge</td><td>The game runs on Windows and exposes shared memory or command control</td></tr><tr><td>Replay</td><td>You want to inspect a saved <code>.dfrec</code> file</td></tr><tr><td>DashForge Lab</td><td>You need synthetic data for development, demos, or testing</td></tr></tbody></table>
+<p>For a first setup, start with game UDP when possible. Use Bridge for Assetto Corsa,
+ACC, or Windows-only control features.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-configure-live-udp">2. Configure Live UDP<a href="#2-configure-live-udp" class="hash-link" aria-label="Direct link to 2. Configure Live UDP" title="Direct link to 2. Configure Live UDP" translate="no">​</a></h2>
+<ol>
+<li class="">Open <code>Settings &gt; Telemetry</code>.</li>
+<li class="">Select the correct game profile.</li>
+<li class="">Enable the UDP listener.</li>
+<li class="">Keep the default DashForge port unless your game already uses it.</li>
+<li class="">In the game, enable telemetry and set the destination IP to the device running DashForge.</li>
+</ol>
+<p>The dashboard header should switch from <code>OFF</code> or <code>IDLE</code> to <code>LIVE</code>, and the packet
+counter should increase.</p>
+<p>If the counter stays at zero:</p>
+<ul>
+<li class="">confirm the game sends to the correct IP address</li>
+<li class="">confirm the port matches DashForge</li>
+<li class="">allow DashForge through the firewall</li>
+<li class="">keep the computer and console/device on the same local network</li>
+<li class="">test with DashForge Lab to separate app setup from game setup</li>
+</ul>
+<p>See <a class="" href="/DashForge/docs/user/udp-setup">UDP Setup</a> for port, forwarding, and troubleshooting details.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-understand-the-main-screens">3. Understand The Main Screens<a href="#3-understand-the-main-screens" class="hash-link" aria-label="Direct link to 3. Understand The Main Screens" title="Direct link to 3. Understand The Main Screens" translate="no">​</a></h2>
+<p>DashForge is organized around daily cockpit tasks.</p>
+<table><thead><tr><th>Screen</th><th>Purpose</th></tr></thead><tbody><tr><td>Dashboard</td><td>Drive with live widgets and build cockpit layouts</td></tr><tr><td>Data</td><td>Inspect every telemetry field supported by the current parser</td></tr><tr><td>Replay</td><td>Record, import, delete, and replay raw <code>.dfrec</code> files</td></tr><tr><td>Sessions</td><td>Group recordings, add notes, and run analysis</td></tr><tr><td>Settings</td><td>Configure telemetry, hardware, web builder, AI, store, and diagnostics</td></tr><tr><td>About</td><td>Version, support, credits, and app information</td></tr></tbody></table>
+<p>On iPhone or compact iPad layouts, some destinations may move under <code>More</code>.</p>
+<p><img decoding="async" loading="lazy" alt="Tutorial Main Navigation" src="/DashForge/docs/assets/images/main-navigation-3e0d4147e5165cf6f66990dba99ad728.png" width="1044" height="542" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-build-your-first-dashboard">4. Build Your First Dashboard<a href="#4-build-your-first-dashboard" class="hash-link" aria-label="Direct link to 4. Build Your First Dashboard" title="Direct link to 4. Build Your First Dashboard" translate="no">​</a></h2>
+<ol>
+<li class="">Open <code>Dashboard</code>.</li>
+<li class="">Click <code>New</code>.</li>
+<li class="">Enter edit mode.</li>
+<li class="">Add a <code>Race Dial</code> widget for speed, gear, RPM, throttle, brake, and steering.</li>
+<li class="">Add <code>Circuit Info</code> for lap and position data.</li>
+<li class="">Add <code>Live Trace</code> if you want the driven path and analysis markers.</li>
+<li class="">Save the dashboard.</li>
+</ol>
+<p>DashForge dashboards use grid placement. Widgets can be moved, resized, duplicated,
+removed, and customized. In 1.1.0 dashboards can also contain multiple pages.</p>
+<p><img decoding="async" loading="lazy" alt="Tutorial First Dashboard" src="/DashForge/docs/assets/images/tutorial-first-dashboard-c6ccb81039373cb8c2ce2ffd52684743.png" width="1392" height="912" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-use-multiple-dashboard-pages">5. Use Multiple Dashboard Pages<a href="#5-use-multiple-dashboard-pages" class="hash-link" aria-label="Direct link to 5. Use Multiple Dashboard Pages" title="Direct link to 5. Use Multiple Dashboard Pages" translate="no">​</a></h2>
+<p>Pages let you separate driving views instead of overcrowding a single screen.</p>
+<p>Recommended layout:</p>
+<table><thead><tr><th>Page</th><th>Suggested content</th></tr></thead><tbody><tr><td>Page 1</td><td>Race Control, lap info, fuel or battery</td></tr><tr><td>Page 2</td><td>Live Trace, analysis widgets, tyre and drift data</td></tr><tr><td>Page 3</td><td>Hardware controls, action buttons, diagnostics</td></tr></tbody></table>
+<p>In edit mode you can add, rename, delete, and switch pages. In drive mode, page
+controls stay out of the way so the cockpit remains clean.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-pick-widgets-that-match-the-car">6. Pick Widgets That Match The Car<a href="#6-pick-widgets-that-match-the-car" class="hash-link" aria-label="Direct link to 6. Pick Widgets That Match The Car" title="Direct link to 6. Pick Widgets That Match The Car" translate="no">​</a></h2>
+<p>Use only widgets that make sense for the current game and vehicle.</p>
+<table><thead><tr><th>Widget</th><th>Best for</th></tr></thead><tbody><tr><td>Race Control</td><td>General racing, speed, RPM, gear, inputs</td></tr><tr><td>Analog Race Control</td><td>Custom speed/RPM gauges with needle styling</td></tr><tr><td>Fuel Status</td><td>Combustion cars and stint planning</td></tr><tr><td>Battery Status</td><td>EV, hybrid, ERS, or energy store telemetry</td></tr><tr><td>Circuit Info</td><td>Lap time, position, current/last/best</td></tr><tr><td>Live Trace</td><td>Track path, live events, lockups, mistakes</td></tr><tr><td>Drift Tyre HUD</td><td>Drift angle, rear tyre stress, grip state</td></tr><tr><td>Action Button</td><td>Trigger Bridge/game/hardware commands</td></tr><tr><td>Stickers</td><td>Decoration, labels, logos, layout cues</td></tr></tbody></table>
+<p>For fuel and battery widgets, choose the display mode that fits the available
+space: full, minimal, horizontal bar, or vertical bar.</p>
+<p>The complete catalog is documented in the
+<a class="" href="/DashForge/docs/user/widget-reference">Widget Reference</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-use-the-data-explorer">7. Use The Data Explorer<a href="#7-use-the-data-explorer" class="hash-link" aria-label="Direct link to 7. Use The Data Explorer" title="Direct link to 7. Use The Data Explorer" translate="no">​</a></h2>
+<p>Open <code>Data</code> when a widget looks wrong or a parser needs checking.</p>
+<p>Use it to:</p>
+<ul>
+<li class="">search fields by name</li>
+<li class="">see which values are changing</li>
+<li class="">compare supported and unsupported fields</li>
+<li class="">confirm whether a game exposes fuel, battery, tyre, suspension, or lap data</li>
+</ul>
+<p>If a widget shows <code>0</code> or <code>--</code>, first check whether the field exists in Data Explorer.
+Some games simply do not expose every telemetry value.</p>
+<p><img decoding="async" loading="lazy" alt="Tutorial Data Explorer" src="/DashForge/docs/assets/images/data-explorer-78c7a245000e0befd6b9ef09a2a383e2.png" width="1352" height="844" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-record-and-replay-telemetry">8. Record And Replay Telemetry<a href="#8-record-and-replay-telemetry" class="hash-link" aria-label="Direct link to 8. Record And Replay Telemetry" title="Direct link to 8. Record And Replay Telemetry" translate="no">​</a></h2>
+<p>Open <code>Replay</code> to manage <code>.dfrec</code> recordings.</p>
+<p>Basic workflow:</p>
+<ol>
+<li class="">Start live telemetry.</li>
+<li class="">Press <code>REC</code>.</li>
+<li class="">Drive a lap or session.</li>
+<li class="">Stop recording.</li>
+<li class="">Rename and annotate the recording.</li>
+<li class="">Replay it later without the game running.</li>
+</ol>
+<p>Replay uses the parser stored in the recording, so old recordings remain usable even
+if another live profile is currently selected.</p>
+<p>The recording list keeps its cached content visible while DashForge refreshes metadata
+in the background.</p>
+<p><img decoding="async" loading="lazy" alt="Tutorial Recording" src="/DashForge/docs/assets/images/replay-5e4d6ebb1cfc9ea4df683c2584b7cf3c.png" width="1352" height="844" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-create-a-session-and-run-analysis">9. Create A Session And Run Analysis<a href="#9-create-a-session-and-run-analysis" class="hash-link" aria-label="Direct link to 9. Create A Session And Run Analysis" title="Direct link to 9. Create A Session And Run Analysis" translate="no">​</a></h2>
+<p>Sessions turn raw recordings into useful driving review.</p>
+<ol>
+<li class="">Open <code>Sessions</code>.</li>
+<li class="">Create a session.</li>
+<li class="">Add one or more recordings.</li>
+<li class="">Add notes, tags, and context.</li>
+<li class="">Run <code>Analyze</code>.</li>
+</ol>
+<p>Analysis can generate:</p>
+<ul>
+<li class="">track trace</li>
+<li class="">driving sections</li>
+<li class="">braking and lockup events</li>
+<li class="">drift and traction events</li>
+<li class="">speed and input samples</li>
+<li class="">severity, timestamp, and advice</li>
+</ul>
+<p>When analysis is running, DashForge shows progress instead of freezing the screen.
+Cached results are saved in the session.</p>
+<p>See <a class="" href="/DashForge/docs/user/sessions-analysis">Sessions and Analysis</a>.</p>
+<p><img decoding="async" loading="lazy" alt="Tutorial Session Analysis" src="/DashForge/docs/assets/images/session-analysis-1-099a79f7643b275497f1d82ed860d668.png" width="1352" height="844" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-share-dashboards-recordings-and-sessions">10. Share Dashboards, Recordings, And Sessions<a href="#10-share-dashboards-recordings-and-sessions" class="hash-link" aria-label="Direct link to 10. Share Dashboards, Recordings, And Sessions" title="Direct link to 10. Share Dashboards, Recordings, And Sessions" translate="no">​</a></h2>
+<p>DashForge can discover other DashForge apps on the local network.</p>
+<p>Before sharing:</p>
+<ol>
+<li class="">Open <code>Settings &gt; Telemetry &gt; Network Sharing</code>.</li>
+<li class="">Enable discovery.</li>
+<li class="">Enable receiving on the target device.</li>
+<li class="">Use <code>Force Scan</code> if peers do not appear immediately.</li>
+</ol>
+<p>You can send:</p>
+<ul>
+<li class="">dashboards</li>
+<li class="">recordings</li>
+<li class="">complete session packages with linked <code>.dfrec</code> files</li>
+</ul>
+<p>Receiving is protected. The target device sees a confirmation prompt before the
+payload is downloaded, then an import progress state during transfer.</p>
+<p>See <a class="" href="/DashForge/docs/user/network-sharing">Network Discovery and Sharing</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-edit-from-a-browser-with-web-builder">11. Edit From A Browser With Web Builder<a href="#11-edit-from-a-browser-with-web-builder" class="hash-link" aria-label="Direct link to 11. Edit From A Browser With Web Builder" title="Direct link to 11. Edit From A Browser With Web Builder" translate="no">​</a></h2>
+<p>The Web Builder lets another device on the local network edit dashboards in a browser.</p>
+<p>Use it when:</p>
+<ul>
+<li class="">the cockpit display is mounted away from the keyboard</li>
+<li class="">you want to edit from an iPad or laptop</li>
+<li class="">you need faster layout iteration</li>
+</ul>
+<p>In <code>Settings &gt; Web</code>, enable the Web Builder server, copy the local URL, and open it
+from another browser on the same network. Use the access token shown by DashForge.</p>
+<p>The web editor supports dashboard selection, pages, widget add/remove/duplicate,
+dragging, resizing, and widget configuration.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-control-games-with-action-buttons-and-bridge">12. Control Games With Action Buttons And Bridge<a href="#12-control-games-with-action-buttons-and-bridge" class="hash-link" aria-label="Direct link to 12. Control Games With Action Buttons And Bridge" title="Direct link to 12. Control Games With Action Buttons And Bridge" translate="no">​</a></h2>
+<p>Action Button widgets can trigger commands through DashForge Bridge.</p>
+<p>Common uses:</p>
+<ul>
+<li class="">pit limiter</li>
+<li class="">headlights</li>
+<li class="">wipers</li>
+<li class="">camera changes</li>
+<li class="">replay controls</li>
+<li class="">custom keyboard shortcuts</li>
+<li class="">Windows messages</li>
+</ul>
+<p>To make the dashboard feel like a button box, edit the Action Button widget and
+choose a <strong>Skin</strong>:</p>
+<ul>
+<li class=""><code>Push Button</code> for momentary actions</li>
+<li class=""><code>On / Off</code> for clear toggle-style controls</li>
+<li class=""><code>Start Engine</code> for ignition/start commands</li>
+<li class=""><code>Rocker</code> for up/down or two-state switches</li>
+<li class=""><code>Toggle Lever</code> for a more physical switch look</li>
+</ul>
+<p>Use <strong>Label</strong> placement when building dense panels so labels align consistently
+above, below, left, or right of each control.</p>
+<p>Bridge supports multiple input strategies depending on the game:</p>
+<table><thead><tr><th>Mode</th><th>Use it when</th></tr></thead><tbody><tr><td>Keyboard</td><td>The game accepts keyboard shortcuts</td></tr><tr><td>Mouse</td><td>You need click or pointer actions</td></tr><tr><td>Win32</td><td>A game or tool accepts Windows message control</td></tr><tr><td>Gamepad</td><td>Requires a virtual gamepad driver such as ViGEm</td></tr></tbody></table>
+<p>See <a class="" href="/DashForge/docs/user/game-control">Game Control</a> and <a class="" href="/DashForge/docs/user/dashforge-bridge">DashForge Bridge</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="13-output-telemetry-to-devices">13. Output Telemetry To Devices<a href="#13-output-telemetry-to-devices" class="hash-link" aria-label="Direct link to 13. Output Telemetry To Devices" title="Direct link to 13. Output Telemetry To Devices" translate="no">​</a></h2>
+<p>Open <code>Settings &gt; Hardware</code> for physical cockpit integrations.</p>
+<p>Device Packet Output can send selected telemetry fields to:</p>
+<ul>
+<li class="">Arduino</li>
+<li class="">ESP32</li>
+<li class="">serial tools</li>
+<li class="">UDP receivers</li>
+<li class="">shift lights</li>
+<li class="">gear displays</li>
+</ul>
+<p>Choose exactly which fields are included in the packet to keep the output small and
+fast. Use a lower output rate for simple hardware and a higher rate for responsive LEDs.
+s
+<img decoding="async" loading="lazy" alt="Tutorial Device Output" src="/DashForge/docs/assets/images/device-output-0af1a184b3f001fb5630d86673c2212f.png" width="1352" height="844" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="14-configure-bass-shakers">14. Configure Bass Shakers<a href="#14-configure-bass-shakers" class="hash-link" aria-label="Direct link to 14. Configure Bass Shakers" title="Direct link to 14. Configure Bass Shakers" translate="no">​</a></h2>
+<p>Bass Shakers generate low-frequency audio from telemetry.</p>
+<p>You can:</p>
+<ul>
+<li class="">assign shakers to seat, rear, pedals, brake, clutch, accelerator, and other zones</li>
+<li class="">choose an audio output per shaker</li>
+<li class="">select channel routing</li>
+<li class="">control engine, road, suspension, slip, brake lock, and gear shift effects</li>
+<li class="">visualize shaker placement on the cockpit map</li>
+</ul>
+<p>Start simple: one shaker under the seat, engine and road effects around 40-50%, then
+add more zones once the baseline feels right.</p>
+<p><img decoding="async" loading="lazy" alt="Tutorial Bass Shakers" src="/DashForge/docs/assets/images/bass-shakers-1-6dce4dcb22d8ed659934e16f5141676b.png" width="1352" height="844" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="15-configure-wind-simulator">15. Configure Wind Simulator<a href="#15-configure-wind-simulator" class="hash-link" aria-label="Direct link to 15. Configure Wind Simulator" title="Direct link to 15. Configure Wind Simulator" translate="no">​</a></h2>
+<p>Wind Simulator generates fan levels from speed, throttle, brake, and steering.</p>
+<p>You can:</p>
+<ul>
+<li class="">add left, right, or center fans</li>
+<li class="">tune speed range and response curve</li>
+<li class="">add throttle boost and braking reduction</li>
+<li class="">split airflow left/right from steering</li>
+<li class="">output JSON packets over UDP or Serial</li>
+</ul>
+<p>Start simple: two fans, one <code>Left</code> and one <code>Right</code>, <code>Smooth</code> curve, <code>20 Hz</code>, and a
+UDP target. Use <strong>Test Wind</strong> before connecting real hardware.</p>
+<p>See <a class="" href="/DashForge/docs/user/wind-simulator">Wind Simulator</a>.</p>
+<p><img decoding="async" loading="lazy" alt="Tutorial Wind simulator" src="/DashForge/docs/assets/images/wind-simulator-panel-1-6fd15c0fa40bd35c42c12fd380a62b4a.png" width="1352" height="844" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="16-use-dashforge-lab-for-testing">16. Use DashForge Lab For Testing<a href="#16-use-dashforge-lab-for-testing" class="hash-link" aria-label="Direct link to 16. Use DashForge Lab For Testing" title="Direct link to 16. Use DashForge Lab For Testing" translate="no">​</a></h2>
+<p>DashForge Lab is an internal simulator for development and demos.</p>
+<p>Use it to:</p>
+<ul>
+<li class="">generate telemetry without launching a game</li>
+<li class="">replay <code>.dfrec</code> files into DashForge</li>
+<li class="">test hardware output</li>
+<li class="">test Bridge commands</li>
+<li class="">simulate a car with keyboard, mouse, or controller input</li>
+<li class="">send data using supported game formats</li>
+</ul>
+<p>See <a class="" href="/DashForge/docs/user/dashforge-lab">DashForge Lab</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="17-control-dashforge-with-ai">17. Control DashForge With AI<a href="#17-control-dashforge-with-ai" class="hash-link" aria-label="Direct link to 17. Control DashForge With AI" title="Direct link to 17. Control DashForge With AI" translate="no">​</a></h2>
+<p>DashForge includes a local MCP-compatible service for AI tools.</p>
+<p>Use it to:</p>
+<ul>
+<li class="">inspect app status</li>
+<li class="">list available commands</li>
+<li class="">query telemetry state</li>
+<li class="">request session analysis summaries</li>
+<li class="">trigger supported DashForge actions</li>
+</ul>
+<p>Enable it only on trusted machines and networks. See <a class="" href="/DashForge/docs/user/mcp-ai-control">MCP AI Control</a>
+for setup and LM Studio configuration.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="18-performance-checklist">18. Performance Checklist<a href="#18-performance-checklist" class="hash-link" aria-label="Direct link to 18. Performance Checklist" title="Direct link to 18. Performance Checklist" translate="no">​</a></h2>
+<p>If the app feels slow:</p>
+<ol>
+<li class="">Open the floating performance panel.</li>
+<li class="">Check FPS, UI Hz, UDP PPS, replay PPS, CPU, memory, RSS, and network rate.</li>
+<li class="">Lower UI refresh rate before lowering game telemetry rate.</li>
+<li class="">Hide heavy debug panels while driving.</li>
+<li class="">Keep Live Trace and analysis widgets only where useful.</li>
+<li class="">Disable debug logging during long replays.</li>
+<li class="">Use <code>GC</code> from the performance panel after heavy imports or long debug sessions.</li>
+</ol>
+<p>High UDP packet rate alone should not force 100% CPU. If CPU spikes, check logging,
+forwarding loops, oversized dashboards, and hardware output rates.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="19-backup-and-update-safely">19. Backup And Update Safely<a href="#19-backup-and-update-safely" class="hash-link" aria-label="Direct link to 19. Backup And Update Safely" title="Direct link to 19. Backup And Update Safely" translate="no">​</a></h2>
+<p>Before major changes:</p>
+<ul>
+<li class="">export important dashboards</li>
+<li class="">export session packages, not only session documents</li>
+<li class="">keep <code>.dfrec</code> recordings with their sessions</li>
+<li class="">backup custom game profiles</li>
+<li class="">note hardware output settings</li>
+</ul>
+<p>After updating DashForge, open <code>What&#x27;s New</code> and test one live profile, one replay, and
+one dashboard before a competitive session.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quick-setup-checklist">Quick Setup Checklist<a href="#quick-setup-checklist" class="hash-link" aria-label="Direct link to Quick Setup Checklist" title="Direct link to Quick Setup Checklist" translate="no">​</a></h2>
+<ul>
+<li class="">Install DashForge.</li>
+<li class="">Pick the game profile.</li>
+<li class="">Enable UDP or Bridge.</li>
+<li class="">Confirm packet count increases.</li>
+<li class="">Build or import a dashboard.</li>
+<li class="">Save the dashboard.</li>
+<li class="">Record a short <code>.dfrec</code>.</li>
+<li class="">Replay it.</li>
+<li class="">Create a session and run analysis.</li>
+<li class="">Optional: enable sharing, Web Builder, hardware output, Bass Shakers, Wind Simulator, or MCP.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-pages">Next Pages<a href="#next-pages" class="hash-link" aria-label="Direct link to Next Pages" title="Direct link to Next Pages" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/DashForge/docs/user/udp-setup">UDP Setup</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/dashboard-builder">Dashboard Builder</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/import-export">Import / Export</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/sessions-analysis">Sessions and Analysis</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/network-sharing">Network Discovery and Sharing</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/action-buttons">Action Buttons</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/hardware-output">Device Packet Output</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/bass-shakers">Bass Shakers</a></li>
+<li class=""><a class="" href="/DashForge/docs/user/wind-simulator">Wind Simulator</a></li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/DashForge/docs/user/getting-started"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Getting Started</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/DashForge/docs/user/whats-new-1.1"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">What&#x27;s New in DashForge 1.1.0</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-you-will-build" class="table-of-contents__link toc-highlight">What You Will Build</a></li><li><a href="#1-choose-your-telemetry-source" class="table-of-contents__link toc-highlight">1. Choose Your Telemetry Source</a></li><li><a href="#2-configure-live-udp" class="table-of-contents__link toc-highlight">2. Configure Live UDP</a></li><li><a href="#3-understand-the-main-screens" class="table-of-contents__link toc-highlight">3. Understand The Main Screens</a></li><li><a href="#4-build-your-first-dashboard" class="table-of-contents__link toc-highlight">4. Build Your First Dashboard</a></li><li><a href="#5-use-multiple-dashboard-pages" class="table-of-contents__link toc-highlight">5. Use Multiple Dashboard Pages</a></li><li><a href="#6-pick-widgets-that-match-the-car" class="table-of-contents__link toc-highlight">6. Pick Widgets That Match The Car</a></li><li><a href="#7-use-the-data-explorer" class="table-of-contents__link toc-highlight">7. Use The Data Explorer</a></li><li><a href="#8-record-and-replay-telemetry" class="table-of-contents__link toc-highlight">8. Record And Replay Telemetry</a></li><li><a href="#9-create-a-session-and-run-analysis" class="table-of-contents__link toc-highlight">9. Create A Session And Run Analysis</a></li><li><a href="#10-share-dashboards-recordings-and-sessions" class="table-of-contents__link toc-highlight">10. Share Dashboards, Recordings, And Sessions</a></li><li><a href="#11-edit-from-a-browser-with-web-builder" class="table-of-contents__link toc-highlight">11. Edit From A Browser With Web Builder</a></li><li><a href="#12-control-games-with-action-buttons-and-bridge" class="table-of-contents__link toc-highlight">12. Control Games With Action Buttons And Bridge</a></li><li><a href="#13-output-telemetry-to-devices" class="table-of-contents__link toc-highlight">13. Output Telemetry To Devices</a></li><li><a href="#14-configure-bass-shakers" class="table-of-contents__link toc-highlight">14. Configure Bass Shakers</a></li><li><a href="#15-configure-wind-simulator" class="table-of-contents__link toc-highlight">15. Configure Wind Simulator</a></li><li><a href="#16-use-dashforge-lab-for-testing" class="table-of-contents__link toc-highlight">16. Use DashForge Lab For Testing</a></li><li><a href="#17-control-dashforge-with-ai" class="table-of-contents__link toc-highlight">17. Control DashForge With AI</a></li><li><a href="#18-performance-checklist" class="table-of-contents__link toc-highlight">18. Performance Checklist</a></li><li><a href="#19-backup-and-update-safely" class="table-of-contents__link toc-highlight">19. Backup And Update Safely</a></li><li><a href="#quick-setup-checklist" class="table-of-contents__link toc-highlight">Quick Setup Checklist</a></li><li><a href="#next-pages" class="table-of-contents__link toc-highlight">Next Pages</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">User Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/getting-started">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/user-tutorial">Complete Tutorial</a></li><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/dashboard-builder">Dashboard Builder</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Artifacts</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/import-export">Dashboard Templates</a></li><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/custom-game-profiles">Game Profiles</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Hardware</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/action-buttons">Action Buttons</a></li><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/hardware-output">Device Packet Output</a></li><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/bass-shakers">Bass Shakers</a></li><li class="footer__item"><a class="footer__link-item" href="/DashForge/docs/user/wind-simulator">Wind Simulator</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 RedBG Software. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
